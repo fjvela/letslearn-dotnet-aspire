@@ -2,6 +2,7 @@ using MyWeatherHub;
 using MyWeatherHub.Components;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.AddServiceDefaults();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -9,9 +10,9 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddHttpClient<NwsManager>(c =>
 {
-	var url = builder.Configuration["WeatherEndpoint"] ?? throw new InvalidOperationException("WeatherEndpoint is not set");
+    var url = builder.Configuration["WeatherEndpoint"] ?? throw new InvalidOperationException("WeatherEndpoint is not set");
 
-	c.BaseAddress = new(url);
+    c.BaseAddress = new(url);
 });
 
 var app = builder.Build();

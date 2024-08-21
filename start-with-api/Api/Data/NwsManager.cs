@@ -24,29 +24,30 @@ namespace Api
 				entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1);
 
 				// To get the live zone data from NWS, uncomment the following code and comment out the return statement below. This is required if you are deploying to ACA
-				//var response = await httpClient.GetAsync("https://api.weather.gov/zones?type=forecast");
-				//response.EnsureSuccessStatusCode();
-				//var content = await response.Content.ReadAsStringAsync();
-				//var zones = JsonSerializer.Deserialize<ZonesResponse>(content, options);
-				//return zones?.Features
-				//				?.Where(f => f.Properties?.ObservationStations?.Count > 0)
-				//				.Select(f => (Zone)f)
-				//				.Distinct()
-				//				.ToArray() ?? [];
+				var response = await httpClient.GetAsync("https://api.weather.gov/zones?type=forecast");
+				response.EnsureSuccessStatusCode();
+				var content = await response.Content.ReadAsStringAsync();
+				var zones = JsonSerializer.Deserialize<ZonesResponse>(content, options);
+
+				return zones?.Features
+								?.Where(f => f.Properties?.ObservationStations?.Count > 0)
+								.Select(f => (Zone)f)
+								.Distinct()
+								.ToArray() ?? [];
 
 
 				// Deserialize the zones.json file from the wwwroot folder
-				var zonesJson = File.Open("wwwroot/zones.json", FileMode.Open);
-				if (zonesJson is null)
-					return [];
+				//var zonesJson = File.Open("wwwroot/zones.json", FileMode.Open);
+				//if (zonesJson is null)
+				//	return [];
 
-				var zones = await JsonSerializer.DeserializeAsync<ZonesResponse>(zonesJson, options);
+				//var zones = await JsonSerializer.DeserializeAsync<ZonesResponse>(zonesJson, options);
 
-				return zones?.Features
-							?.Where(f => f.Properties?.ObservationStations?.Count > 0)
-							.Select(f => (Zone)f)
-							.Distinct()
-							.ToArray() ?? [];
+				//return zones?.Features
+				//			?.Where(f => f.Properties?.ObservationStations?.Count > 0)
+				//			.Select(f => (Zone)f)
+				//			.Distinct()
+				//			.ToArray() ?? [];
 			});
 
 		}
@@ -89,10 +90,10 @@ namespace Microsoft.Extensions.DependencyInjection
 			services.AddMemoryCache();
 
 			// Add default output caching
-			services.AddOutputCache(options =>
-			{
-				options.AddBasePolicy(builder => builder.Cache());
-			});
+			//services.AddOutputCache(options =>
+			//{
+			//	options.AddBasePolicy(builder => builder.Cache());
+			//});
 
 			return services;
 		}

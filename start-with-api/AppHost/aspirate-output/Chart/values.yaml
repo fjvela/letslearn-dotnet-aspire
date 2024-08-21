@@ -1,0 +1,5 @@
+images:
+  cache: docker.io/library/redis:7.2
+  api: api:latest
+  myweatherhub: myweatherhub:latest
+  aspiredashboard: mcr.microsoft.com/dotnet/aspire-dashboard:8.0

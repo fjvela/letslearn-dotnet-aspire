@@ -1,0 +1,24 @@
+{
+  "projectPath": ".",
+  "outputPath": "aspirate-output",
+  "containerImageTags": [
+    "latest"
+  ],
+  "imagePullPolicy": "IfNotPresent",
+  "containerBuilder": "docker",
+  "outputFormat": "helm",
+  "privateRegistryEmail": "aspir8@aka.ms",
+  "includeDashboard": true,
+  "secrets": {
+    "salt": "CPQtDdjpehl7Qr03",
+    "hash": "t83RSVI\u002BOraAsMAQQdOvb4\u002BYaXB/8SmmlcLR/v7m9qg=",
+    "secrets": {
+      "cache": {},
+      "api": {
+        "ConnectionStrings__cache": "CPQtDdjpehl7Qr03\u002B2orL7/FoMqeHw5W4wyS/3rvDHxB\u002Bewav0E="
+      },
+      "myweatherhub": {}
+    }
+  },
+  "processAllComponents": true
+}
