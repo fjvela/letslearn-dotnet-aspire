@@ -1,0 +1,31 @@
+{
+  "projectPath": ".",
+  "outputPath": "aspirate-output",
+  "namespace": "dotnetters",
+  "containerImageTags": [
+    "latest"
+  ],
+  "imagePullPolicy": "IfNotPresent",
+  "containerBuilder": "docker",
+  "templatePath": "C:\\dev\\my\\aspire\\letslearn-dotnet-aspire\\start\\AppHost\\k8s",
+  "outputFormat": "kustomize",
+  "skipFinalKustomizeGeneration": false,
+  "privateRegistryEmail": "aspir8@aka.ms",
+  "includeDashboard": true,
+  "useCustomNamespace": true,
+  "secrets": {
+    "salt": "WyHP22Yonnr4vAR1",
+    "hash": "XWImlfjJXLhjB1z5ivWvTeRNw9jzYlr12v8z8QbX3Xw=",
+    "secrets": {
+      "cache": {},
+      "api": {
+        "ConnectionStrings__cache": "WyHP22Yonnr4vAR1m2PTBSC1o5tYIVxi8UhQGoYX22/2/ANv4BeB55J73qF0tJWvMcMwX2wRIRuRb0OiKJZE79h6H/AABQ=="
+      },
+      "web": {},
+      "cache-password": {
+        "value": "WyHP22Yonnr4vAR1swlTKGMkmaBUhIQ9fZ7Oz6Qb4EjZtEIV51zdxJZd5ZVroYPgHMU="
+      }
+    }
+  },
+  "processAllComponents": true
+}

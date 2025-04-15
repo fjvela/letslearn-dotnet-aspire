@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations: {}
+  labels:
+    app: web
+  name: web
+spec:
+  minReadySeconds: 60
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: web
+    spec:
+      containers:
+      - args: []
+        envFrom:
+        - configMapRef:
+            name: web
+        image: '{{ .Values.images.web }}'
+        imagePullPolicy: IfNotPresent
+        name: web
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8443
+          name: https
+      terminationGracePeriodSeconds: 180

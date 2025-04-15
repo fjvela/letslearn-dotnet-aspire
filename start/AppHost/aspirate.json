@@ -1,0 +1,13 @@
+{
+  "TemplatePath": "C:\\dev\\my\\aspire\\letslearn-dotnet-aspire\\start\\AppHost\\k8s",
+  "ContainerSettings": {
+    "Registry": null,
+    "RepositoryPrefix": null,
+    "Tags": [
+      "latest"
+    ],
+    "Builder": "docker",
+    "BuildArgs": null,
+    "Context": null
+  }
+}

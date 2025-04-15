@@ -1,0 +1,13 @@
+namespace: dotnetters
+
+resources:
+- cache
+- api
+- web
+- namespace.yaml
+- dashboard.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+
